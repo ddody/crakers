@@ -30,6 +30,8 @@ const theme = createMuiTheme({
   }
 });
 
+console.log('process.env.PUBLIC_URL : ' + process.env.PUBLIC_URL);
+
 const App = () => (
   <div>
     <MuiThemeProvider theme={theme}>
@@ -40,12 +42,33 @@ const App = () => (
       </header> */}
 
       <main>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about-us" component={About} />
-        <Route exact path="/notice" component={Notice} />
-        <Route exact path="/faq" component={Faq} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/contact/write" component={ContactInput} />
+        <Route
+          basename={'/crakers'}
+          exact
+          path={`${process.env.PUBLIC_URL}/`}
+          component={Home}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/about-us`}
+          component={About}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/notice`}
+          component={Notice}
+        />
+        <Route exact path={`${process.env.PUBLIC_URL}/faq`} component={Faq} />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/contact`}
+          component={Contact}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/contact/write`}
+          component={ContactInput}
+        />
       </main>
     </MuiThemeProvider>
   </div>
