@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import ContactInput from './ContactInput';
 import ContactView from './ContactView';
 import Button from '@material-ui/core/Button';
 import * as api from '../../modules/api';
@@ -76,7 +75,6 @@ class Contact extends Component {
           </div>
         </Link>
         <ContactView data={this.state.list} />
-        {/* <ContactInput /> */}
       </div>
     );
   }

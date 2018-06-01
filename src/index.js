@@ -20,7 +20,7 @@ render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
-        <App />
+        <App back={history.goBack} />
       </div>
     </ConnectedRouter>
   </Provider>,

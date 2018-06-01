@@ -25,19 +25,15 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper
   },
   tabRoot: {
-    fontSize: theme.typography.pxToRem(14),
+    fontSize: theme.typography.pxToRem(16),
     fontWeight: '500',
     color: '#333333',
     letterSpacing: '-0.07em',
-    fontFamily: ['Noto Sans KR'],
-    marginLeft: '10%',
-    marginRight: '10%'
+    marginLeft: '5%',
+    marginRight: '5%'
   },
   tabsRoot: {
-    backgroundColor: '#fff',
-    borderBottomWidth: '1px',
-    borderBottomColor: '#e9e9e9',
-    borderStyle: 'solid'
+    backgroundColor: '#fff'
   },
   tabsIndicator: {
     backgroundColor: '#333',
@@ -93,6 +89,8 @@ class Faq extends React.Component {
     const { classes } = this.props;
     const { value } = this.state;
 
+    console.log(this.state.list);
+
     return (
       <div className={classes.root}>
         <Header heading={this.props.heading} />
@@ -105,14 +103,36 @@ class Faq extends React.Component {
               indicator: classes.tabsIndicator
             }}
             centered>
-            <Tab label="회원가입/탈퇴" className={classes.tabRoot} />
             <Tab label="서비스" className={classes.tabRoot} />
+            <Tab label="회원가입/탈퇴" className={classes.tabRoot} />
+            <Tab label="결제/환불" className={classes.tabRoot} />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer />}
+        {value === 0 && (
+          <TabContainer>
+            <FaqList
+              data={this.state.list.filter(function(value) {
+                return value.category_code === 'F01';
+              })}
+            />
+          </TabContainer>
+        )}
         {value === 1 && (
           <TabContainer>
-            <FaqList data={this.state.list} />
+            <FaqList
+              data={this.state.list.filter(function(value) {
+                return value.category_code === 'F02';
+              })}
+            />
+          </TabContainer>
+        )}
+        {value === 2 && (
+          <TabContainer>
+            <FaqList
+              data={this.state.list.filter(function(value) {
+                return value.category_code === 'F03';
+              })}
+            />
           </TabContainer>
         )}
       </div>

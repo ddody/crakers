@@ -9,28 +9,26 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
   date: {
-    fontSize: theme.typography.pxToRem(11),
     fontWeight: theme.typography.fontWeightThin,
     marginTop: '2px',
     flexBasis: '24%',
     flexShrink: 0
   },
   heading: {
-    fontSize: theme.typography.pxToRem(14),
-    fontWeight: '500',
+    fontWeight: '400',
     color: '#333333',
     letterSpacing: '-0.07em',
     fontFamily: ['Noto Sans KR'],
     wordBreak: 'break-word'
   },
   detail: {
-    fontSize: theme.typography.pxToRem(14),
     fontWeight: '400',
     color: '#666666',
     letterSpacing: '-0.07em',
     fontFamily: ['Noto Sans KR']
   },
   detailBg: {
+    borderTop: '1px solid #e9e9e9',
     backgroundColor: '#f5f5f5',
     paddingTop: '24px'
   },
@@ -68,7 +66,7 @@ class FaqDetail extends Component {
     const { classes } = this.props;
     const { expanded } = this.state;
     const { id, title, contents } = this.props.info;
-
+    //
     return (
       <div>
         <ExpansionPanel
@@ -83,7 +81,9 @@ class FaqDetail extends Component {
             <Typography className={classes.heading}>{title}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className={classes.detailBg}>
-            <Typography className={classes.detail}>{contents}</Typography>
+            <Typography className={classes.detail}>
+              {contents.replace(/\n/gi, '\\r\\n')}
+            </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       </div>

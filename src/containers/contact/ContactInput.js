@@ -27,8 +27,7 @@ const styles = theme => ({
     fontWeight: '500',
     color: '#333333',
     letterSpacing: '-0.07em',
-    fontFamily: ['Noto Sans KR'],
-    borderColor: '#e9e9e9'
+    fontFamily: ['Noto Sans KR']
   },
   textarea: {
     paddingBottom: '16px'

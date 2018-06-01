@@ -22,16 +22,19 @@ const styles = theme => ({
     width: '100%',
     minHeight: 'calc(100% - 56px)'
   },
+  title: {
+    fontSize: 14
+  },
+
   chip: {
     fontSize: theme.typography.pxToRem(14),
     width: '60px',
     height: '25px',
     backgroundColor: '#fff',
     borderRadius: '12.5px',
-    borderWidth: '1.5px',
-    borderColor: '#d5d5d5',
-    borderStyle: 'solid',
-    color: '#999999'
+    border: '1.5px solid #d5d5d5',
+    color: '#999999',
+    fontSize: 12
   },
   listItem: {
     paddingTop: '6px',
@@ -57,6 +60,9 @@ const styles = theme => ({
     borderRadius: '0',
     fontSize: 14,
     color: '#666'
+  },
+  subheading: {
+    fontSize: 1
   }
 });
 
@@ -89,7 +95,31 @@ class ContactView extends React.Component {
             onClick={this.handleClick}
             className={classes.listItem}>
             <Chip label="답변대기" className={classes.chip} color="primary" />
-            <ListItemText primary={title} secondary={created} />
+            <ListItemText
+              disableTypography
+              className={classes.title}
+              primary={
+                <Typography
+                  style={{
+                    fontSize: 14,
+                    fontWeight: '500',
+                    color: '#333'
+                  }}>
+                  {title}
+                </Typography>
+              }
+              secondary={
+                <Typography
+                  style={{
+                    fontSize: 11,
+                    fontWeight: '300',
+                    color: '#aaaaaa',
+                    letterSpacing: '-.028em'
+                  }}>
+                  {created}
+                </Typography>
+              }
+            />
             {this.state.open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse

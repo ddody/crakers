@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 
 const styles = theme => ({
   appBar: {
@@ -44,7 +44,7 @@ class Header extends Component {
               className={classes.prevButton}
               color="inherit"
               aria-label="back">
-              <ArrowBackIcon />
+              <KeyboardArrowLeft />
             </IconButton>
             <Typography
               className={classes.title}
